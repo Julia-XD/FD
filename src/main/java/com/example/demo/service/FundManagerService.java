@@ -37,4 +37,19 @@ public class FundManagerService {
         criteria.andEmployeeIdEqualTo(id);
         return fundManagerMapper.selectByExample(fundManagerExample);
     }
+
+
+
+
+    public boolean add(String name){
+        String[] strs=name.split(" ");
+        String firstname = strs[0].toString();
+        String lastname = strs[1].toString();
+        FundManager fundManager=new FundManager();
+        fundManager.setFirstname(firstname);
+        fundManager.setLastname(lastname);
+        int id = fundManagerMapper.insert(fundManager);
+
+        return id==1;
+    }
 }

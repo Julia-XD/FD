@@ -1,3 +1,30 @@
+POST http://localhost:8080/Security/post
+Content-Type: application/x-www-form-urlencoded
+
+symbol=MS
+
+<> 2021-08-11T115344.200.json
+
+###
+
+POST http://localhost:8080/fundManager/post
+Content-Type: application/x-www-form-urlencoded
+
+name=Test test
+
+<> 2021-08-11T113543.200.json
+
+###
+
+POST http://localhost:8080/fundManager/post
+Content-Type: application/x-www-form-urlencoded
+
+name=Test test
+
+<> 2021-08-11T113207.200.json
+
+###
+
 GET http://localhost:8080/fundManager/list
 Accept: application/json
 
@@ -328,33 +355,6 @@ Content-Type: application/x-www-form-urlencoded
 name=TEXT
 
 <> 2021-08-11T022004.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-name = TEXT
-
-<> 2021-08-11T021954.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-id=99&content=new-element
-
-name = TEXT
-
-<> 2021-08-11T021919.200.txt
-
-###
-
-GET http://localhost:8080/hello
-Accept: application/json
-
-<> 2021-08-11T021919.200.json
 
 ###
 

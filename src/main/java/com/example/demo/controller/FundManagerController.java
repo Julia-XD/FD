@@ -27,4 +27,12 @@ public class FundManagerController {
     public List<FundManager> list2(@PathVariable int id){
         return fundManagerService.list2(id);
     }
+
+    @RequestMapping(value = "/post",method = RequestMethod.POST)
+    public boolean add(String name){
+        boolean flag = fundManagerService.add(name);
+        return flag;
+    }
+
+
 }
