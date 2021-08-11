@@ -3,6 +3,16 @@ Accept: application/json
 
 ###/Terry Jones
 
+
+GET http://localhost:8080/fundManager/list-name/Terry Jones
+Accept: application/json
+
+###
+
+GET http://localhost:8080/fundManager/list-id/1
+Accept: application/json
+
+###/
 POST http://localhost:8080/hello/post
 Content-Type: application/x-www-form-urlencoded
 

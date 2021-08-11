@@ -17,24 +17,23 @@ public class FundManagerService {
         return fundManagerMapper.selectByExample(null);
     }
 
-    public List<FundManager> list(String name){
-        //System.out.print(name);
-
+    public List<FundManager> list1(String name){
         String[] strs=name.split(" ");
-
         String firstname = strs[0].toString();
         String lastname = strs[1].toString();
-        //System.out.print("/n");
-        //System.out.print(firstname);
-        //System.out.print(lastname);
         FundManagerExample fundManagerExample = new FundManagerExample();
         FundManagerExample.Criteria criteria = fundManagerExample.createCriteria();
         criteria.andFirstnameLike("%"+firstname+"%");
-       // fundManagerExample.or(criteria);
         FundManagerExample.Criteria criteria1 = fundManagerExample.createCriteria();
         criteria1.andFirstnameLike("%"+lastname+"%");
         fundManagerExample.or(criteria1);
+        return fundManagerMapper.selectByExample(fundManagerExample);
+    }
 
+    public List<FundManager> list2(int id ){
+        FundManagerExample fundManagerExample = new FundManagerExample();
+        FundManagerExample.Criteria criteria = fundManagerExample.createCriteria();
+        criteria.andEmployeeIdEqualTo(id);
         return fundManagerMapper.selectByExample(fundManagerExample);
     }
 }

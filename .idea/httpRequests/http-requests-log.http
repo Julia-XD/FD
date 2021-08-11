@@ -1,6 +1,85 @@
 GET http://localhost:8080/fundManager/list
 Accept: application/json
 
+<> 2021-08-11T085433.200.json
+
+###
+
+GET http://localhost:8080/fundManager/list-id/1
+Accept: application/json
+
+<> 2021-08-11T085428.200.json
+
+###
+
+GET http://localhost:8080/fundManager/list-name/Terry%20Jones
+Accept: application/json
+
+<> 2021-08-11T085419.200.json
+
+###
+
+GET http://localhost:8080/fundManager/list
+Accept: application/json
+
+<> 2021-08-11T085404.200.json
+
+###
+
+GET http://localhost:8080/fundManager/list/Terry%20Jones
+Accept: application/json
+
+<> 2021-08-11T085359.404.json
+
+###
+
+GET http://localhost:8080/fundManager/list/1
+Accept: application/json
+
+<> 2021-08-11T085357.404.json
+
+###
+
+GET http://localhost:8080/fundManager/list/1
+Accept: application/json
+
+<> 2021-08-11T085348.404.json
+
+###
+
+POST http://localhost:8080/hello/post
+Content-Type: application/x-www-form-urlencoded
+
+name=TEXT
+
+<> 2021-08-11T085343.200.txt
+
+###
+
+GET http://localhost:8080/fundManager/list/1
+Accept: application/json
+
+<> 2021-08-11T084332.200.json
+
+###
+
+GET http://localhost:8080/fundManager/list/1
+Accept: application/json
+
+<> 2021-08-11T084232.500.json
+
+###
+
+GET http://localhost:8080/fundManager/list/1
+Accept: application/json
+
+<> 2021-08-11T084028.500.json
+
+###
+
+GET http://localhost:8080/fundManager/list
+Accept: application/json
+
 <> 2021-08-11T083402.200.json
 
 ###
@@ -276,111 +355,6 @@ GET http://localhost:8080/hello
 Accept: application/json
 
 <> 2021-08-11T021919.200.json
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-id=99&content=new-element
-
-name = TEXT
-
-<> 2021-08-11T021906.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-id=99&content=new-element
-
-name = TEXT
-
-<> 2021-08-11T021856.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-id=99&content=new-element
-
-name = TEXT
-
-<> 2021-08-11T021851.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-name = TEST
-
-<> 2021-08-11T021729.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-name = test
-
-<> 2021-08-11T021719.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-name = test
-
-<> 2021-08-11T021712.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-name = test
-
-<> 2021-08-11T021323.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-name = test
-
-<> 2021-08-11T021319.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-  name = "test"
-
-<> 2021-08-11T021303.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/json
-
-  name = "test"
-
-<> 2021-08-11T021227.200.txt
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/json
-
-  "name" : "test"
-
-<> 2021-08-11T021101.200.txt
 
 ###
 
