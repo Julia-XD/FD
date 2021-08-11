@@ -18,15 +18,15 @@ public class FundManagerService {
     }
 
     public List<FundManager> list1(String name){
-        System.out.print(name);
+        //System.out.print(name);
 
         String[] strs=name.split(" ");
 
         String firstname = strs[0].toString();
         String lastname = strs[1].toString();
-        System.out.print("/n");
-        System.out.print(firstname);
-        System.out.print(lastname);
+        //System.out.print("/n");
+        //System.out.print(firstname);
+        //System.out.print(lastname);
         FundManagerExample fundManagerExample = new FundManagerExample();
         FundManagerExample.Criteria criteria = fundManagerExample.createCriteria();
         criteria.andFirstnameLike("%"+firstname+"%");

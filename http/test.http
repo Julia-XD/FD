@@ -1,4 +1,4 @@
-GET http://localhost:8080/fundManager/list1?name=Terry Jones
+GET http://localhost:8080/fundManager/list1/Terry Jones
 Accept: application/json
 
 ###
