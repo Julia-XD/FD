@@ -17,7 +17,7 @@ public class FundManagerService {
         return fundManagerMapper.selectByExample(null);
     }
 
-    public List<FundManager> list1(String name){
+    public List<FundManager> list(String name){
         //System.out.print(name);
 
         String[] strs=name.split(" ");

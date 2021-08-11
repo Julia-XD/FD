@@ -18,10 +18,10 @@ public class FundManagerController {
         return fundManagerService.list();
     }
 
-    @GetMapping("/list1/{name}")
-    public List<FundManager> list1(@PathVariable String name){
+    @GetMapping("/list/{name}")
+    public List<FundManager> list(@PathVariable String name){
         //System.out.print(name);
 
-        return fundManagerService.list1(name);
+        return fundManagerService.list(name);
     }
 }

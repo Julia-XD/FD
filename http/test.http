@@ -1,7 +1,7 @@
-GET http://localhost:8080/fundManager/list1/Terry Jones
+GET http://localhost:8080/fundManager/list
 Accept: application/json
 
-###
+###/Terry Jones
 
 POST http://localhost:8080/hello/post
 Content-Type: application/x-www-form-urlencoded
