@@ -24,6 +24,7 @@ public class FundManagerService {
         FundManagerExample fundManagerExample = new FundManagerExample();
         FundManagerExample.Criteria criteria = fundManagerExample.createCriteria();
         criteria.andFirstnameLike("%"+firstname+"%");
+
         FundManagerExample.Criteria criteria1 = fundManagerExample.createCriteria();
         criteria1.andFirstnameLike("%"+lastname+"%");
         fundManagerExample.or(criteria1);
