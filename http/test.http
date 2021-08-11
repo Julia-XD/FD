@@ -1,0 +1,14 @@
+GET http://localhost:8080/fundManager/list
+Accept: application/json
+
+###
+
+POST http://localhost:8080/hello/post
+Content-Type: application/x-www-form-urlencoded
+
+name=TEXT
+
+###
+
+
+###
