@@ -1,3 +1,74 @@
+POST http://localhost:8080/position/post
+Content-Type: application/x-www-form-urlencoded
+
+fundid=1&securityid=1&quantity=100
+
+<> 2021-08-11T124519.200.json
+
+###
+
+POST http://localhost:8080/position/post
+Content-Type: application/x-www-form-urlencoded
+
+fundid=1&securityid=1&quantity=100
+
+###
+
+POST http://localhost:8080/position/post
+Content-Type: application/x-www-form-urlencoded
+
+fundid=1&securityid=1&quantity=100
+
+<> 2021-08-11T124345.404.json
+
+###
+
+POST http://localhost:8080/fund/post
+Content-Type: application/x-www-form-urlencoded
+
+employeeId=0&name=Grobal Growth 2
+
+<> 2021-08-11T122002.200.json
+
+###
+
+POST http://localhost:8080/fund/post
+Content-Type: application/x-www-form-urlencoded
+
+employeeId=1&name=Grobal Growth 2
+
+<> 2021-08-11T121949.200.json
+
+###
+
+POST http://localhost:8080/fund/post
+Content-Type: application/x-www-form-urlencoded
+
+employeeId=1&name=Grobal Growth 2
+
+<> 2021-08-11T121741.200.json
+
+###
+
+POST http://localhost:8080/fund/post
+Content-Type: application/x-www-form-urlencoded
+
+employeeId=1&name=Grobal Growth
+
+<> 2021-08-11T121043.200.json
+
+###
+
+POST http://localhost:8080/fund/post
+Content-Type: application/x-www-form-urlencoded
+
+employeeId=1
+name=Grobal Growth
+
+<> 2021-08-11T120616.400.json
+
+###
+
 POST http://localhost:8080/Security/post
 Content-Type: application/x-www-form-urlencoded
 
@@ -297,64 +368,6 @@ GET http://localhost:8080/fundManager/list
 Accept: application/json
 
 <> 2021-08-11T043844.404.json
-
-###
-
-GET http://localhost:8080/fundManager/list
-Accept: application/json
-
-<> 2021-08-11T043837.404.json
-
-###
-
-GET http://localhost:8080/fundManager/list
-Accept: application/json
-
-<> 2021-08-11T043748.500.json
-
-###
-
-GET http://localhost:8080/fundManager/list
-Accept: application/json
-
-<> 2021-08-11T042853.500.json
-
-###
-
-GET http://localhost:8080/fundManager/list
-Accept: application/json
-
-<> 2021-08-11T042738.404.json
-
-###
-
-GET http://localhost:8080/fundManager/list
-Accept: application/json
-
-<> 2021-08-11T042652.404.json
-
-###
-
-GET http://localhost:8080/hello
-Accept: application/json
-
-<> 2021-08-11T023113.200.json
-
-###
-
-GET http://localhost:8080/hello
-Accept: application/json
-
-<> 2021-08-11T023100.200.json
-
-###
-
-POST http://localhost:8080/hello/post
-Content-Type: application/x-www-form-urlencoded
-
-name=TEXT
-
-<> 2021-08-11T022004.200.txt
 
 ###
 

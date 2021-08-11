@@ -18,4 +18,9 @@ public class SecurityService {
 
         return 1==securityMapper.insert(security);
     }
+
+    public boolean isSecurity(int id){
+        Security security = securityMapper.selectByPrimaryKey(id);
+        return security!=null;
+    }
 }

@@ -25,3 +25,14 @@ Content-Type: application/x-www-form-urlencoded
 
 symbol=MS
 ###
+
+POST http://localhost:8080/fund/post
+Content-Type: application/x-www-form-urlencoded
+
+employeeId=2&name=Grobal Growth 2
+
+###fundid,int securityid,int quantity
+POST http://localhost:8080/position/post
+Content-Type: application/x-www-form-urlencoded
+
+fundid=1&securityid=1&quantity=100

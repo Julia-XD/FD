@@ -39,7 +39,10 @@ public class FundManagerService {
     }
 
 
-
+    public boolean isFundManager(int id){
+        FundManager fundManager = fundManagerMapper.selectByPrimaryKey(id);
+        return fundManager!=null;
+    }
 
     public boolean add(String name){
         String[] strs=name.split(" ");
