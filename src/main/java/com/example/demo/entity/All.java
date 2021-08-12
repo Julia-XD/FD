@@ -1,3 +1,6 @@
+/**
+ * @author Xiaohan Chen
+ */
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
