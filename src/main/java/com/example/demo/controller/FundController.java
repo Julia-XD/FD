@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.Exception.EmployeeNotFoundException;
+import com.example.demo.Exception.NotFoundException;
+import com.example.demo.Exception.NullValueException;
 import com.example.demo.entity.Fund;
 import com.example.demo.entity.FundManager;
 import com.example.demo.service.FundManagerService;
@@ -9,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,6 +34,7 @@ public class FundController {
 
     @GetMapping("/list-name/{name}")
     public List<Fund> list1(@PathVariable String name) {
+
         return fundService.list1(name);
     }
 
@@ -46,15 +51,11 @@ public class FundController {
     //增加
     @ApiOperation(value = "Add a fund ", notes = "Add a fund Api")
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public boolean add(int employeeId, String name) {
+    public boolean add(int employeeId,  String name) {
         //先判断employeeid存在吗
         if (!fundManagerService.isFundManager(employeeId)) {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+            throw new EmployeeNotFoundException(employeeId);
+            //return false;
         } else {
             boolean flag = fundService.add(employeeId, name);
             return flag;
@@ -68,7 +69,11 @@ public class FundController {
     //        return resp;
     //    }
     @RequestMapping(value = "/post-json", method = RequestMethod.POST)
-    public boolean add1(@RequestBody Fund fund) {
+    public boolean add1( @RequestBody Fund fund) {
+        if(fund.getEmployeeId()==null||fund.getName()==null){
+            throw new NullValueException("employeeId or name or fundId ");
+        }
+
         if (!fundManagerService.isFundManager(fund.getEmployeeId())) {
             try {
                 throw new Exception();
@@ -87,24 +92,17 @@ public class FundController {
 
         //修改
         @RequestMapping(value = "/update", method = RequestMethod.PUT)
-        public boolean update ( int fundId, int employeeId, String name){
+        public boolean update ( Integer fundId, Integer employeeId, String name){
+            if(employeeId==null||name==null||fundId==null){
+                throw new NullValueException("employeeId or name or fundId ");
+            }
             //先判断fundid存在吗
             //先判断employeeid存在吗
             if (!fundService.isFund(fundId)) {
-                try {
-                    throw new Exception();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return false;
+               throw new NotFoundException("fundId");
             } else {
                 if (!fundManagerService.isFundManager(employeeId)) {
-                    try {
-                        throw new Exception();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return false;
+                   throw new NotFoundException("employeeId");
                 } else {
                     boolean flag = fundService.update(fundId, employeeId, name);
                     return flag;
@@ -113,17 +111,12 @@ public class FundController {
         }
 
         //删除
-        @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-        public boolean delete ( int fundId){
+        @RequestMapping(value = "/delete/{fundId}", method = RequestMethod.DELETE)
+        public boolean delete (@PathVariable int fundId){
             //先判断fundid存在吗
             //先判断employeeid存在吗
             if (!fundService.isFund(fundId)) {
-                try {
-                    throw new Exception();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return false;
+                throw new NotFoundException("fundId");
             } else {
 
                 boolean flag = fundService.delete(fundId);

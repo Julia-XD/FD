@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.Exception.NotFoundException;
+import com.example.demo.Exception.NullValueException;
 import com.example.demo.entity.Security;
 import com.example.demo.service.SecurityService;
 
@@ -16,6 +18,9 @@ public class SecurityController {
 
     @RequestMapping(value = "/post",method = RequestMethod.POST)
     public boolean add(String symbol){
+        if(symbol==null){
+            throw new NullValueException("symbol");
+        }
         boolean flag =securityService.add(symbol);
         return flag;
     }
@@ -34,14 +39,13 @@ public class SecurityController {
 
     //update
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public boolean update(int securityId, String symbol){
+    public boolean update(Integer securityId, String symbol){
+        if(securityId==null||symbol==null){
+            throw new NullValueException("securytyId or Symbol");
+        }
+
         if (!securityService.isSecurity(securityId)){
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+            throw new NotFoundException("SecurityId");
         } else {
             boolean flag = securityService.update(securityId,symbol);
             return flag;
@@ -50,15 +54,10 @@ public class SecurityController {
 
 
     //delete
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public boolean delete(int securityId){
+    @RequestMapping(value = "/delete/{securityId}", method = RequestMethod.DELETE)
+    public boolean delete(@PathVariable int securityId){
         if (!securityService.isSecurity(securityId)){
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+           throw new NotFoundException("SecurityId");
         } else {
 
             boolean flag = securityService.delete(securityId);

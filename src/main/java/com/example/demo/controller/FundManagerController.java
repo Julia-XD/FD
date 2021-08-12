@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.Exception.NotFoundException;
+import com.example.demo.Exception.NullValueException;
 import com.example.demo.entity.FundManager;
 import com.example.demo.service.FundManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,22 +39,24 @@ public class FundManagerController {
     //add
     @RequestMapping(value = "/post-json", method = RequestMethod.POST)
     public boolean add(@RequestBody FundManager fundManager) {
+        if(fundManager.getFirstname()==null||fundManager.getLastname()==null){
+            throw new NullValueException("name");
+        }
         boolean flag = fundManagerService.add(fundManager.getFirstname() + " " + fundManager.getLastname());
         return flag;
     }
 
     //update
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public boolean update (int employeeId, String firstname,String lastname){
+    public boolean update (Integer employeeId, String firstname,String lastname){
+        if(employeeId==null||firstname==null||lastname==null){
+            throw new NullValueException("paprameters");
+        }
+
         String name=firstname+" "+lastname;
         //先判断employeeid存在吗
         if (!fundManagerService.isFundManager(employeeId)) {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+            throw new NotFoundException("employeeId");
         } else {
             boolean flag = fundManagerService.update(employeeId, name);
             return flag;
@@ -60,16 +64,11 @@ public class FundManagerController {
     }
 
     //delete
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public boolean delete ( int employeeId){
+    @RequestMapping(value = "/delete/{employeeId}", method = RequestMethod.DELETE)
+    public boolean delete (@PathVariable int employeeId){
         //先判断employeeid存在吗
         if (!fundManagerService.isFundManager(employeeId)) {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+           throw new NotFoundException("employeeId");
         } else {
 
             boolean flag = fundManagerService.delete(employeeId);

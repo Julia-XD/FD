@@ -36,6 +36,7 @@ public class FundService {
     }
 
     public List<Fund> list3(int id ){
+
         FundExample fundExample = new FundExample();
         FundExample.Criteria criteria = fundExample.createCriteria();
         criteria.andFundIdEqualTo(id);

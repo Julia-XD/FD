@@ -2,15 +2,15 @@ package com.example.demo.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.jetbrains.annotations.NotNull;
+
+import javax.validation.constraints.NotNull;
 
 @ApiModel("Fund Class")
 public class Fund {
     @ApiModelProperty(hidden = true)
     private Integer fundId;
+
     @ApiModelProperty(value = "name",name = "name",example = "CCCC",required = true)
-
-
     private String name;
     @ApiModelProperty(value = "fundManagerId",name = "employeeId",example = "1",required = true)
     private Integer employeeId;

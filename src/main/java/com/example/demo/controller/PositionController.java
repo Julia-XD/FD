@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.Exception.NotFoundException;
+import com.example.demo.Exception.NullValueException;
 import com.example.demo.entity.Position;
 import com.example.demo.service.FundService;
 import com.example.demo.service.PositionService;
@@ -59,24 +61,18 @@ public class PositionController {
     //add
     @ApiOperation(value = "Add a position ", notes = "Add a position Api")
     @RequestMapping(value = "/post",method = RequestMethod.POST)
-    public boolean add(int securityId, int fundId, int quantity){
+    public boolean add(Integer securityId, Integer fundId, Integer quantity){
+        if(securityId==null||fundId==null||quantity==null){
+            throw new NullValueException("security or fundid or quantity");
+        }
+
         //check if fundId exists
         if(!fundService.isFund(fundId)) {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+           throw new NotFoundException("fundid");
         }else {
             //check if securityId exists
             if(!securityService.isSecurity(securityId)) {
-                try {
-                    throw new Exception();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return false;
+                throw new NotFoundException("security");
             }else {
                 return positionService.add(securityId, fundId, quantity);
             }
@@ -86,33 +82,22 @@ public class PositionController {
 
     //update
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public boolean update(int positionId, int securityId, int fundId, int quantity){
+    public boolean update(Integer positionId, Integer securityId, Integer fundId, Integer quantity){
+        if(positionId==null||securityId==null||fundId==null||quantity==null){
+            throw new NullValueException("positionId or security or fundid or quantity");
+        }
+
         //check if positionId exists
         if (!positionService.isPosition(positionId)){
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+           throw new NotFoundException("positionid");
         } else {
             //check if securityId exists
             if (!securityService.isSecurity(securityId)) {
-                try {
-                    throw new Exception();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return false;
+              throw new NotFoundException("securityid");
             } else {
                 //check if fundId exists
                 if (!fundService.isFund(fundId)) {
-                    try {
-                        throw new Exception();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return false;
+                    throw new NotFoundException("fundid");
                 } else {
                     boolean flag = positionService.update(positionId, securityId, quantity, fundId);
                     return flag;
@@ -122,16 +107,11 @@ public class PositionController {
     }
 
     //delete
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/{positionId}", method = RequestMethod.DELETE)
     public boolean delete (int positionId){
         //first check if positionId exists
         if (!positionService.isPosition(positionId)) {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+           throw new NotFoundException("positionid");
         } else {
             boolean flag = positionService.delete(positionId);
             return flag;
