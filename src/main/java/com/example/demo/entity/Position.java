@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
 public class Position {
@@ -10,7 +12,7 @@ public class Position {
     private Integer fundId;
 
     private Integer quantity;
-
+    @ApiModelProperty(hidden = true)
     private Date date;
 
     public Integer getPositionId() {

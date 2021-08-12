@@ -1,6 +1,9 @@
 package com.example.demo.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class FundManager {
+    @ApiModelProperty(hidden = true)
     private Integer employeeId;
 
     private String firstname;
