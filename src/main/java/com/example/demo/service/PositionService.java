@@ -20,7 +20,7 @@ public class PositionService {
     @Autowired
     private PositionMapper positionMapper;
 
-    public boolean add(int fundid,int securityid,int quantity){
+    public boolean add(int securityid,int fundid,int quantity){
         Position position =new Position();
         position.setFundId(fundid);
         position.setSecurityId(securityid);
