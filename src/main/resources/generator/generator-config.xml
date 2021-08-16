@@ -43,7 +43,7 @@
        <!-- <table tableName="fund_manager" domainObjectName="FundManager"/>-->
        <!-- <table tableName="fund" domainObjectName="Fund"/>
         <table tableName="position" domainObjectName="Position"/>-->
-        <table tableName="security" domainObjectName="Security"/>
+        <table tableName="user" domainObjectName="User" />
         <!--<table tableName="ebook"/>-->
         <!--<table tableName="category"/>-->
         <!--<table tableName="doc"/>-->
