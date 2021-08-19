@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.AllMapper">
+
+    <select id="selectAll"  resultType="com.example.demo.entity.All">
+        select
+            pp.firstname,pp.lastname,pp.name, s.symbol,pp.quantity,pp.date
+        from security s
+                 join
+             (select
+                  p.position_id,p.security_id,p.quantity,p.date,ff.name,ff.firstname,ff.lastname
+              from position p
+                       join (select
+                                 f.fund_id,f.name,fm.firstname,fm.lastname
+                             from fund f
+                                      join fund_manager fm
+                                           on f.employee_id=fm.employee_id) ff
+                            on p.fund_id=ff.fund_id) pp
+             on pp.security_id=s.security_id
+    </select>
+</mapper>
